@@ -3,6 +3,11 @@
 # The contents of the local zubNet-A directory are the repository root.
 # Keep source code, compact manifests, OOF summaries, and publication figures.
 # Exclude raw data, materialized folds, checkpoints, caches, and legacy outputs.
+# Matching untracked files are excluded when staging with `git add .`.
+# Rules starting with ! intentionally allow selected files to be committed.
+# Already tracked files require `git rm --cached -- <path>` to stop tracking;
+# use `git rm -r --cached -- <directory>` for a tracked directory.
+# GitHub's browser upload does not apply .gitignore; publish using Git.
 # -----------------------------------------------------------------------------
 
 # Python caches and tooling
@@ -84,11 +89,6 @@ Desktop.ini
 /DSSE_Net_GradCAM_Final.png
 /train_patient_ids.json
 /test_patient_ids.json
-/MyOwnModels/
-/theBaseLineModels/
-/going_modular/05_pytorch_going_modular_cell_mode.ipynb
-/going_modular/05_pytorch_going_modular_script_mode.ipynb
-/going_modular/going_modular/evaluation.ipynb
 
 # The original residual-based ablation folders are superseded by the
 # residual-free-reference study. The selected model itself is retained below.
