@@ -23,14 +23,14 @@ The selected DSSE-Net architecture is trained from scratch and evaluated with ne
 
 ## 🗂️ Repository contents
 
-| Path | Purpose |
-|---|---|
-| [`DSSE_Net_Nested_CV.ipynb`](DSSE_Net_Nested_CV.ipynb) | Main end-to-end notebook: data preparation, nested CV, training, evaluation, ablation, baselines, and Grad-CAM. |
-| [`dsse_primary.py`](dsse_primary.py) | Compact helpers for loading and presenting the selected residual-free model results. |
-| [`export_ablation_learning_curves.py`](export_ablation_learning_curves.py) | Rebuilds supplementary learning-curve figures from saved inner-fold histories. |
-| [`going_modular/going_modular`](going_modular/going_modular) | Supporting data-loading, training, evaluation, prediction, and utility modules. |
-| [`nested_cv_artifacts`](nested_cv_artifacts) | Reproducibility manifests, fold membership, preprocessing configuration, QC records, and data summaries. |
-| `nested_cv_*_results/` | Compact experiment configurations, histories, OOF summaries, figures, and comparison tables. Model weights are intentionally excluded from Git. |
+| Path                                                                       | Purpose                                                                                                                                         |
+| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`DSSE_Net_Nested_CV.ipynb`](DSSE_Net_Nested_CV.ipynb)                     | Main end-to-end notebook: data preparation, nested CV, training, evaluation, ablation, baselines, and Grad-CAM.                                 |
+| [`dsse_primary.py`](dsse_primary.py)                                       | Compact helpers for loading and presenting the selected residual-free model results.                                                            |
+| [`export_ablation_learning_curves.py`](export_ablation_learning_curves.py) | Rebuilds supplementary learning-curve figures from saved inner-fold histories.                                                                  |
+| [`going_modular/going_modular`](going_modular/going_modular)               | Supporting data-loading, training, evaluation, prediction, and utility modules.                                                                 |
+| [`nested_cv_artifacts`](nested_cv_artifacts)                               | Reproducibility manifests, fold membership, preprocessing configuration, QC records, and data summaries.                                        |
+| `nested_cv_*_results/`                                                     | Compact experiment configurations, histories, OOF summaries, figures, and comparison tables. Model weights are intentionally excluded from Git. |
 
 Large raw data, duplicated fold images, checkpoints, and legacy single-split experiments are excluded by [`.gitignore`](.gitignore).
 
@@ -45,7 +45,6 @@ Upload the **contents** of the local `zubNet-A` directory directly to the GitHub
 ├── DSSE_Net_Nested_CV.ipynb
 ├── dsse_primary.py
 ├── export_ablation_learning_curves.py
-├── going_modular/
 ├── nested_cv_artifacts/
 └── nested_cv_*_results/
 ```
@@ -64,17 +63,17 @@ The final model is the **residual-free DSSE-Net**. Each DSSE block applies:
 
 The complete network is:
 
-| Stage | Operation | Output channels / units |
-|---|---|---:|
-| Input | Grayscale CE-MRI resized to `224 × 224` | 1 |
-| Stem | `3 × 3`, stride-2 convolution + BN + ReLU | 32 |
-| Stage 1 | 2 residual-free DSSE blocks | 32 |
-| Downsample 1 | `1 × 1`, stride-2 convolution | 96 |
-| Stage 2 | 3 residual-free DSSE blocks | 96 |
-| Downsample 2 | `1 × 1`, stride-2 convolution | 192 |
-| Stage 3 | 4 residual-free DSSE blocks | 192 |
-| Head | Global average pooling → FC 256 → BN → ReLU → dropout `0.5` | 256 |
-| Output | Linear classifier | 3 logits |
+| Stage        | Operation                                                   | Output channels / units |
+| ------------ | ----------------------------------------------------------- | ----------------------: |
+| Input        | Grayscale CE-MRI resized to `224 × 224`                     |                       1 |
+| Stem         | `3 × 3`, stride-2 convolution + BN + ReLU                   |                      32 |
+| Stage 1      | 2 residual-free DSSE blocks                                 |                      32 |
+| Downsample 1 | `1 × 1`, stride-2 convolution                               |                      96 |
+| Stage 2      | 3 residual-free DSSE blocks                                 |                      96 |
+| Downsample 2 | `1 × 1`, stride-2 convolution                               |                     192 |
+| Stage 3      | 4 residual-free DSSE blocks                                 |                     192 |
+| Head         | Global average pooling → FC 256 → BN → ReLU → dropout `0.5` |                     256 |
+| Output       | Linear classifier                                           |                3 logits |
 
 The output layer returns **logits**. Softmax is applied only when probabilities are required for inference, patient-level pooling, calibration, ROC-AUC, or visualization.
 
@@ -84,12 +83,12 @@ The experiments use the public Cheng contrast-enhanced MRI brain tumor dataset a
 
 ### Final study cohort
 
-| Class | Class index | Patients | Images after QC |
-|---|---:|---:|---:|
-| Meningioma | 0 | 82 | 701 |
-| Glioma | 1 | 89 | 1,310 |
-| Pituitary | 2 | 62 | 920 |
-| **Total** | — | **233** | **2,931** |
+| Class      | Class index | Patients | Images after QC |
+| ---------- | ----------: | -------: | --------------: |
+| Meningioma |           0 |       82 |             701 |
+| Glioma     |           1 |       89 |           1,310 |
+| Pituitary  |           2 |       62 |             920 |
+| **Total**  |           — |  **233** |       **2,931** |
 
 The original dataset contains 3,064 slices from the same 233 patients. After automated cropping, 133 images with unsatisfactory preprocessing results were excluded through manual visual quality control. The patient cohort was retained, and all folds were rebuilt from the post-QC image manifest.
 
@@ -145,19 +144,19 @@ Every patient appears in a locked outer test set exactly once. Slice probabiliti
 
 ### Selected DSSE-Net
 
-| Setting | Value |
-|---|---|
-| Initialization | From scratch |
-| Optimizer | Adam |
-| Loss | Cross-entropy |
-| Initial/fixed learning rate | `0.001` |
-| Learning-rate scheduler | None |
-| Weight decay | `1 × 10⁻⁴` |
-| Batch size | 32 |
-| Maximum inner-fold epochs | 50 |
-| Selection metric | Validation macro F1 |
-| Base random seed | 42 |
-| Input tensor | `1 × 224 × 224`, values scaled to `[0, 1]` |
+| Setting                     | Value                                      |
+| --------------------------- | ------------------------------------------ |
+| Initialization              | From scratch                               |
+| Optimizer                   | Adam                                       |
+| Loss                        | Cross-entropy                              |
+| Initial/fixed learning rate | `0.001`                                    |
+| Learning-rate scheduler     | None                                       |
+| Weight decay                | `1 × 10⁻⁴`                                 |
+| Batch size                  | 32                                         |
+| Maximum inner-fold epochs   | 50                                         |
+| Selection metric            | Validation macro F1                        |
+| Base random seed            | 42                                         |
+| Input tensor                | `1 × 224 × 224`, values scaled to `[0, 1]` |
 
 Training-only augmentation consists of random rotation within `±20°`, horizontal flipping with probability `0.5`, and vertical flipping with probability `0.5`. Random augmentation is never applied to inner validation or locked outer test images.
 
@@ -169,18 +168,18 @@ The baseline CNNs use ImageNet-1K initialization and full fine-tuning with learn
 
 ### Pooled patient-level OOF performance
 
-| Metric | Result |
-|---|---:|
-| Correct patients | 217 / 233 |
-| Accuracy | **93.13%** |
-| 95% patient-cluster bootstrap CI for accuracy | **89.70–96.14%** |
-| Balanced accuracy | **93.49%** |
-| Macro F1 | **0.9295** |
-| 95% bootstrap CI for macro F1 | **0.8953–0.9598** |
-| Macro one-vs-rest ROC-AUC | **0.9936** |
-| Expected calibration error, 10 bins | 7.87% |
-| Parameters | **0.288 M** |
-| Compute | **0.299 GFLOPs** |
+| Metric                                        |            Result |
+| --------------------------------------------- | ----------------: |
+| Correct patients                              |         217 / 233 |
+| Accuracy                                      |        **93.13%** |
+| 95% patient-cluster bootstrap CI for accuracy |  **89.70–96.14%** |
+| Balanced accuracy                             |        **93.49%** |
+| Macro F1                                      |        **0.9295** |
+| 95% bootstrap CI for macro F1                 | **0.8953–0.9598** |
+| Macro one-vs-rest ROC-AUC                     |        **0.9936** |
+| Expected calibration error, 10 bins           |             7.87% |
+| Parameters                                    |       **0.288 M** |
+| Compute                                       |  **0.299 GFLOPs** |
 
 The five outer-fold patient accuracies were `95.74%`, `89.13%`, `95.74%`, `89.36%`, and `95.65%` (standard deviation: `3.54` percentage points).
 
@@ -188,11 +187,11 @@ The secondary slice-level analysis achieved `91.61%` accuracy and `0.9077` macro
 
 ### Patient-level performance by class
 
-| Class | Precision | Sensitivity / recall | Specificity | F1 | Support |
-|---|---:|---:|---:|---:|---:|
-| Meningioma | 0.9726 | 0.8659 | 0.9868 | 0.9161 | 82 |
-| Glioma | 0.9551 | 0.9551 | 0.9722 | 0.9551 | 89 |
-| Pituitary | 0.8592 | 0.9839 | 0.9415 | 0.9173 | 62 |
+| Class      | Precision | Sensitivity / recall | Specificity |     F1 | Support |
+| ---------- | --------: | -------------------: | ----------: | -----: | ------: |
+| Meningioma |    0.9726 |               0.8659 |      0.9868 | 0.9161 |      82 |
+| Glioma     |    0.9551 |               0.9551 |      0.9722 | 0.9551 |      89 |
+| Pituitary  |    0.8592 |               0.9839 |      0.9415 | 0.9173 |      62 |
 
 <p align="center">
   <img src="nested_cv_ablation_results/split_ablation/without_residual/figures/primary_model_dashboard.png" alt="Selected DSSE-Net results dashboard" width="900">
@@ -204,14 +203,14 @@ The machine-readable primary metrics are available in [`oof_patient_level_overal
 
 All baselines were fully fine-tuned from ImageNet-1K weights using the same nested patient partitions. Holm-adjusted p-values are from exact two-sided McNemar tests against the selected residual-free DSSE-Net.
 
-| Model | Training | Accuracy | Macro F1 | Parameters | GFLOPs | Holm-adjusted p |
-|---|---|---:|---:|---:|---:|---:|
-| **DSSE-Net, residual-free** | From scratch | **93.13%** | **0.9295** | **0.288 M** | **0.299** | — |
-| ResNet-50 | ImageNet full fine-tuning | 95.71% | 0.9577 | 23.514 M | 4.132 | 0.7300 |
-| DenseNet-121 | ImageNet full fine-tuning | 95.28% | 0.9525 | 6.957 M | 2.896 | 1.0000 |
-| MobileNetV3-Large | ImageNet full fine-tuning | 94.42% | 0.9448 | 4.206 M | 0.234 | 1.0000 |
-| EfficientNet-B0 | ImageNet full fine-tuning | 95.28% | 0.9510 | 4.011 M | 0.414 | 1.0000 |
-| RegNet-Y-400MF | ImageNet full fine-tuning | 94.42% | 0.9447 | 3.904 M | 0.418 | 1.0000 |
+| Model                       | Training                  |   Accuracy |   Macro F1 |  Parameters |    GFLOPs | Holm-adjusted p |
+| --------------------------- | ------------------------- | ---------: | ---------: | ----------: | --------: | --------------: |
+| **DSSE-Net, residual-free** | From scratch              | **93.13%** | **0.9295** | **0.288 M** | **0.299** |               — |
+| ResNet-50                   | ImageNet full fine-tuning |     95.71% |     0.9577 |    23.514 M |     4.132 |          0.7300 |
+| DenseNet-121                | ImageNet full fine-tuning |     95.28% |     0.9525 |     6.957 M |     2.896 |          1.0000 |
+| MobileNetV3-Large           | ImageNet full fine-tuning |     94.42% |     0.9448 |     4.206 M |     0.234 |          1.0000 |
+| EfficientNet-B0             | ImageNet full fine-tuning |     95.28% |     0.9510 |     4.011 M |     0.414 |          1.0000 |
+| RegNet-Y-400MF              | ImageNet full fine-tuning |     94.42% |     0.9447 |     3.904 M |     0.418 |          1.0000 |
 
 None of the five paired differences was statistically significant after Holm correction at `α = 0.05`. These comparisons support a compact performance–complexity trade-off; they do not establish equivalence or superiority.
 
@@ -224,15 +223,15 @@ Full compact tables:
 
 The selected residual-free model is the reference. Each row changes one design choice while preserving the nested patient-level protocol.
 
-| Configuration | Accuracy | Δ accuracy | Macro F1 | Macro ROC-AUC | Parameters | GFLOPs | Holm p |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| **Selected residual-free DSSE-Net** | **93.13%** | — | **0.9295** | **0.9936** | 0.2879 M | 0.2991 | — |
-| Add residual connections | 90.99% | −2.15 pp | 0.9073 | 0.9904 | 0.2879 M | 0.2991 | 1.0000 |
-| Remove vertical flip | 92.70% | −0.43 pp | 0.9272 | 0.9928 | 0.2879 M | 0.2991 | 1.0000 |
-| Remove SE attention | 89.70% | −3.43 pp | 0.8963 | 0.9891 | 0.2645 M | 0.2967 | 0.5766 |
-| Replace depthwise with standard `3 × 3` convolution | 80.26% | −12.88 pp | 0.8026 | 0.9682 | 1.8722 M | 2.3303 | **4.16 × 10⁻⁷** |
-| Remove dropout | 91.85% | −1.29 pp | 0.9193 | 0.9868 | 0.2879 M | 0.2991 | 1.0000 |
-| Remove all augmentation | 90.56% | −2.58 pp | 0.9068 | 0.9892 | 0.2879 M | 0.2991 | 1.0000 |
+| Configuration                                       |   Accuracy | Δ accuracy |   Macro F1 | Macro ROC-AUC | Parameters | GFLOPs |          Holm p |
+| --------------------------------------------------- | ---------: | ---------: | ---------: | ------------: | ---------: | -----: | --------------: |
+| **Selected residual-free DSSE-Net**                 | **93.13%** |          — | **0.9295** |    **0.9936** |   0.2879 M | 0.2991 |               — |
+| Add residual connections                            |     90.99% |   −2.15 pp |     0.9073 |        0.9904 |   0.2879 M | 0.2991 |          1.0000 |
+| Remove vertical flip                                |     92.70% |   −0.43 pp |     0.9272 |        0.9928 |   0.2879 M | 0.2991 |          1.0000 |
+| Remove SE attention                                 |     89.70% |   −3.43 pp |     0.8963 |        0.9891 |   0.2645 M | 0.2967 |          0.5766 |
+| Replace depthwise with standard `3 × 3` convolution |     80.26% |  −12.88 pp |     0.8026 |        0.9682 |   1.8722 M | 2.3303 | **4.16 × 10⁻⁷** |
+| Remove dropout                                      |     91.85% |   −1.29 pp |     0.9193 |        0.9868 |   0.2879 M | 0.2991 |          1.0000 |
+| Remove all augmentation                             |     90.56% |   −2.58 pp |     0.9068 |        0.9892 |   0.2879 M | 0.2991 |          1.0000 |
 
 Only replacement of depthwise convolution with standard convolution remained significant after Holm correction.
 
@@ -371,12 +370,12 @@ nested_cv_ablation_results/
 
 Change only the required execution switch and keep unrelated switches disabled:
 
-| Experiment | Notebook setting |
-|---|---|
-| With-residual control | `RUN_WITH_RESIDUAL_CONTROL = True` |
-| Four residual-free component ablations | `RUN_ABLATION_STUDY = True` |
-| Five pretrained CNN baselines | `RUN_BASELINE_COMPARISON = True` |
-| No-residual, no-vertical-flip control | `RUN_DSSE_NET_NO_RESIDUAL = True` |
+| Experiment                             | Notebook setting                   |
+| -------------------------------------- | ---------------------------------- |
+| With-residual control                  | `RUN_WITH_RESIDUAL_CONTROL = True` |
+| Four residual-free component ablations | `RUN_ABLATION_STUDY = True`        |
+| Five pretrained CNN baselines          | `RUN_BASELINE_COMPARISON = True`   |
+| No-residual, no-vertical-flip control  | `RUN_DSSE_NET_NO_RESIDUAL = True`  |
 
 For a short verification run, restrict the corresponding list before enabling training, for example:
 
