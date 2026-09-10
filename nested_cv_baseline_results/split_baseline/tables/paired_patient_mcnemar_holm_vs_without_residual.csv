@@ -1,0 +1,6 @@
+comparison,baseline_model,baseline_label,patients,both_correct,primary_correct_baseline_wrong,primary_wrong_baseline_correct,both_wrong,discordant_pairs,test,mcnemar_statistic,raw_p_value,holm_adjusted_p_value,significant_after_holm_0_05
+without_residual_vs_resnet50,resnet50,ResNet-50,233,214,3,9,7,12,exact_two_sided_mcnemar,3.0,0.14599609375,0.72998046875,False
+without_residual_vs_densenet121,densenet121,DenseNet-121,233,212,5,10,6,15,exact_two_sided_mcnemar,5.0,0.30175781249999994,1.0,False
+without_residual_vs_mobilenet_v3_large,mobilenet_v3_large,MobileNetV3-Large,233,211,6,9,7,15,exact_two_sided_mcnemar,6.0,0.6072387695312499,1.0,False
+without_residual_vs_efficientnet_b0,efficientnet_b0,EfficientNet-B0,233,211,6,11,5,17,exact_two_sided_mcnemar,6.0,0.332305908203125,1.0,False
+without_residual_vs_regnet_y_400mf,regnet_y_400mf,RegNet-Y-400MF,233,212,5,8,8,13,exact_two_sided_mcnemar,5.0,0.5810546875,1.0,False

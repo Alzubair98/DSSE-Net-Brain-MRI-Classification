@@ -1,0 +1,41 @@
+{
+  "class_to_index": {
+    "glioma": 1,
+    "meningioma": 0,
+    "pituitary": 2
+  },
+  "crop_config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "dataset_images": 2931,
+  "dataset_patients": 233,
+  "device": "cuda",
+  "frozen_baseline": "nested_cv_results/split_554d062a5bd7",
+  "inner_folds": 5,
+  "outer_folds": 5,
+  "protocol": "component_ablation_nested_stratified_patient_level_5x5_cross_validation",
+  "resume_completed_runs": true,
+  "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+  "training_config": {
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.001,
+    "loss": "cross_entropy",
+    "monitor": "macro_f1",
+    "name": "fixed_paper_settings",
+    "optimizer": "Adam",
+    "reproducibility_revision": "cublas_workspace_4096_8_v1",
+    "weight_decay": 0.0001
+  },
+  "training_config_sha256": "d468342c19c193b991b312bfa200b1209f4fd26b3d9c25c2a35c292c51238cd6",
+  "variant_config": {
+    "block_dropout": 0.1,
+    "description": "Shortcut addition is removed from every DSSE block.",
+    "head_dropout": 0.5,
+    "label": "Without residual connection",
+    "use_depthwise": true,
+    "use_residual": false,
+    "use_se": true,
+    "use_vertical_flip": true
+  },
+  "variant_config_sha256": "94b3e4d2877c4b7d6f852af297fd4de32fd5f0fadf513948eb875ef0a5a1d6eb",
+  "variant_name": "without_residual"
+}

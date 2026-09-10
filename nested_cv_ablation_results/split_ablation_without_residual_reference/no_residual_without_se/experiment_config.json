@@ -1,0 +1,42 @@
+{
+  "class_to_index": {
+    "glioma": 1,
+    "meningioma": 0,
+    "pituitary": 2
+  },
+  "crop_config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "dataset_images": 2931,
+  "dataset_patients": 233,
+  "device": "cuda",
+  "frozen_reference": "nested_cv_ablation_results/split_ablation/without_residual",
+  "inner_folds": 5,
+  "outer_folds": 5,
+  "protocol": "component_ablation_nested_stratified_patient_level_5x5_cross_validation",
+  "resume_completed_runs": true,
+  "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+  "training_config": {
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.001,
+    "loss": "cross_entropy",
+    "monitor": "macro_f1",
+    "name": "residual_free_reference_ablation",
+    "optimizer": "Adam",
+    "reproducibility_revision": "cublas_workspace_4096_8_v1",
+    "weight_decay": 0.0001
+  },
+  "training_config_sha256": "48899cbab8bb4c02b588f06216d61c45c2515c3f2686857d32cd636cfd6e097f",
+  "variant_config": {
+    "block_dropout": 0.1,
+    "description": "SE is removed while residual additions remain disabled.",
+    "head_dropout": 0.5,
+    "label": "No residual + without SE",
+    "use_augmentation": true,
+    "use_depthwise": true,
+    "use_residual": false,
+    "use_se": false,
+    "use_vertical_flip": true
+  },
+  "variant_config_sha256": "5ae7b45f1c316ae7796b60ce74a5da30c37c82153ef55138dece40590e255680",
+  "variant_name": "no_residual_without_se"
+}

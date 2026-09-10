@@ -1,0 +1,28 @@
+{
+  "baseline_run_sha256": "1749ec8949e1c09dbdbb9c25ca6aa5005aa9e6a10ad58b758778bb4ad9d293d2",
+  "checkpoint_path": "nested_cv_baseline_results/split_baseline/densenet121/models/outer_fold_4/final_refit/final_model.pt",
+  "crop_config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "development_images": 2336,
+  "history_path": "nested_cv_baseline_results/split_baseline/densenet121/models/outer_fold_4/final_refit/history.csv",
+  "locked_test_images": 595,
+  "model_label": "DenseNet-121",
+  "model_name": "densenet121",
+  "model_seed": 500046,
+  "outer_fold": 4,
+  "refit_epochs": 35,
+  "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+  "training_config": {
+    "batch_size": 32,
+    "epochs": 50,
+    "fine_tuning": "all_layers",
+    "learning_rate": 0.0001,
+    "loss": "cross_entropy",
+    "monitor": "macro_f1",
+    "name": "imagenet_full_finetuning",
+    "optimizer": "Adam",
+    "pretrained_initialization": "ImageNet-1K",
+    "reproducibility_revision": "cublas_workspace_4096_8_v1",
+    "weight_decay": 0.0001
+  },
+  "training_seconds": 470.8158867000602
+}

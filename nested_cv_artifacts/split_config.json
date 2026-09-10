@@ -1,0 +1,39 @@
+{
+  "assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+  "class_to_index": {
+    "glioma": 1,
+    "meningioma": 0,
+    "pituitary": 2
+  },
+  "crop_config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "cropped_class_counts": {
+    "glioma": 1310,
+    "meningioma": 701,
+    "pituitary": 920
+  },
+  "cropped_image_root": "nested_cv_cropped",
+  "failed_crops": 0,
+  "inner_folds": 5,
+  "manual_exclusions_manifest": "manual_quality_exclusions.csv",
+  "manual_quality_exclusions": 133,
+  "outer_folds": 5,
+  "patient_count": 233,
+  "pre_qc_slice_count": 3064,
+  "protocol": "nested_stratified_patient_level_cross_validation_after_manual_qc",
+  "quality_control_manifest": "quality_control_manifest.csv",
+  "raw_label_to_class": {
+    "1": "meningioma",
+    "2": "glioma",
+    "3": "pituitary"
+  },
+  "seed": 42,
+  "slice_count": 2931,
+  "successful_crops": 2931,
+  "versions": {
+    "h5py": "3.15.1",
+    "numpy": "2.2.6",
+    "pandas": "2.3.2",
+    "python": "3.10.18",
+    "scikit_learn": "1.7.1"
+  }
+}

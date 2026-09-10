@@ -1,0 +1,2 @@
+outer_fold,candidate_name,mean_inner_validation_macro_f1,std_inner_validation_macro_f1,median_best_epoch,minimum_best_epoch,maximum_best_epoch,training_config_sha256
+3,paper_default,0.9263983945424883,0.04136196471881846,38.0,27,47,b387dead7d08830f46bf95db0af85b3aa319acfe2495dca082e60555d248a6eb

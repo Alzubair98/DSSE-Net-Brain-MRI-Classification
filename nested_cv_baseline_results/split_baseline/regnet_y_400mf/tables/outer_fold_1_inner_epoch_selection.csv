@@ -1,0 +1,6 @@
+model_name,outer_fold,inner_fold,best_epoch,best_validation_macro_f1
+regnet_y_400mf,1,0,49,0.9435010208807219
+regnet_y_400mf,1,1,15,1.0
+regnet_y_400mf,1,2,31,0.9594065577718599
+regnet_y_400mf,1,3,42,0.9287691722231449
+regnet_y_400mf,1,4,22,0.9761425504179128

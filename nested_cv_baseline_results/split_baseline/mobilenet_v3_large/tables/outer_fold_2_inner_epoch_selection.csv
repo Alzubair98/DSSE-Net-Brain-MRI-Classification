@@ -1,0 +1,6 @@
+model_name,outer_fold,inner_fold,best_epoch,best_validation_macro_f1
+mobilenet_v3_large,2,0,50,0.917176949696639
+mobilenet_v3_large,2,1,47,0.9796519962197724
+mobilenet_v3_large,2,2,27,0.9470060286793355
+mobilenet_v3_large,2,3,44,0.9759513343777714
+mobilenet_v3_large,2,4,27,0.9870953134798449

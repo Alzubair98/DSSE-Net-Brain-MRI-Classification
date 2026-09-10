@@ -1,0 +1,22 @@
+{
+  "application": "on_the_fly_training_only",
+  "batch_size": 32,
+  "class_to_index": {
+    "glioma": 1,
+    "meningioma": 0,
+    "pituitary": 2
+  },
+  "horizontal_flip_probability": 0.5,
+  "input_size": [
+    1,
+    224,
+    224
+  ],
+  "outer_test_random_augmentation": false,
+  "random_rotation_degrees": [
+    -20,
+    20
+  ],
+  "validation_random_augmentation": false,
+  "vertical_flip_probability": 0.5
+}

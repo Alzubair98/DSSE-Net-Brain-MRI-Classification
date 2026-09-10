@@ -1,0 +1,64 @@
+{
+  "baseline_run_sha256": "bfd6f53f7b92a09e3f181edd5b7789d15e9292252c4ead71e90188849e5d0d5a",
+  "class_to_index": {
+    "glioma": 1,
+    "meningioma": 0,
+    "pituitary": 2
+  },
+  "crop_config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "dataset_images": 2931,
+  "dataset_patients": 233,
+  "device": "cuda",
+  "frozen_dsse_net_root": "nested_cv_results/split_554d062a5bd7",
+  "inner_folds": 5,
+  "model_name": "efficientnet_b0",
+  "model_spec": {
+    "label": "EfficientNet-B0",
+    "pretrained": true,
+    "weights": "EfficientNet_B0_Weights.DEFAULT"
+  },
+  "outer_folds": 5,
+  "preprocessing_config": {
+    "channel_conversion": "replicate grayscale channel to RGB",
+    "horizontal_flip_probability": 0.5,
+    "input_size": [
+      3,
+      224,
+      224
+    ],
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "outer_test_random_augmentation": false,
+    "source_images": "same cropped grayscale MRI images as DSSE-Net",
+    "training_rotation_degrees": [
+      -20,
+      20
+    ],
+    "validation_random_augmentation": false,
+    "vertical_flip_probability": 0.5
+  },
+  "protocol": "torchvision_baseline_nested_stratified_patient_level_5x5_cross_validation",
+  "resume_completed_runs": true,
+  "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+  "training_config": {
+    "batch_size": 32,
+    "epochs": 50,
+    "fine_tuning": "all_layers",
+    "learning_rate": 0.0001,
+    "loss": "cross_entropy",
+    "monitor": "macro_f1",
+    "name": "imagenet_full_finetuning",
+    "optimizer": "Adam",
+    "pretrained_initialization": "ImageNet-1K",
+    "reproducibility_revision": "cublas_workspace_4096_8_v1",
+    "weight_decay": 0.0001
+  }
+}

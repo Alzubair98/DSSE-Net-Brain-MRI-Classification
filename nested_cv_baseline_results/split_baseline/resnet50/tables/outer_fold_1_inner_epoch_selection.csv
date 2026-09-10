@@ -1,0 +1,6 @@
+model_name,outer_fold,inner_fold,best_epoch,best_validation_macro_f1
+resnet50,1,0,23,0.9377149815486412
+resnet50,1,1,34,1.0
+resnet50,1,2,39,0.9730947984408128
+resnet50,1,3,40,0.9302748625687157
+resnet50,1,4,42,0.9871685933596513

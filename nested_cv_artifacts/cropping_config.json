@@ -1,0 +1,17 @@
+{
+  "config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "contour_approximation": "CHAIN_APPROX_SIMPLE",
+  "contour_retrieval": "RETR_EXTERNAL",
+  "dilation_iterations": 2,
+  "erosion_iterations": 2,
+  "final_images_are_not_overwritten": true,
+  "gaussian_kernel": [
+    5,
+    5
+  ],
+  "gaussian_sigma": 0,
+  "include_extreme_endpoint": true,
+  "padding_pixels": 0,
+  "post_crop_manual_quality_control": true,
+  "threshold": 45
+}

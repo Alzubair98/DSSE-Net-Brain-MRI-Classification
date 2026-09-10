@@ -1,0 +1,51 @@
+{
+  "augmentation": {
+    "application": "on_the_fly_training_only",
+    "batch_size": 32,
+    "class_to_index": {
+      "glioma": 1,
+      "meningioma": 0,
+      "pituitary": 2
+    },
+    "horizontal_flip_probability": 0.5,
+    "input_size": [
+      1,
+      224,
+      224
+    ],
+    "outer_test_random_augmentation": false,
+    "random_rotation_degrees": [
+      -20,
+      20
+    ],
+    "validation_random_augmentation": false,
+    "vertical_flip_probability": 0.5
+  },
+  "candidate_configurations": [
+    {
+      "batch_size": 32,
+      "epochs": 50,
+      "learning_rate": 0.001,
+      "loss": "cross_entropy",
+      "monitor": "macro_f1",
+      "name": "paper_default",
+      "optimizer": "Adam",
+      "reproducibility_revision": "cublas_workspace_4096_8_v1",
+      "weight_decay": 0.0001
+    }
+  ],
+  "class_to_index": {
+    "glioma": 1,
+    "meningioma": 0,
+    "pituitary": 2
+  },
+  "crop_config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "dataset_images": 2931,
+  "dataset_patients": 233,
+  "device": "cuda",
+  "inner_folds": 5,
+  "outer_folds": 5,
+  "protocol": "nested_stratified_patient_level_5x5_cross_validation",
+  "resume_completed_runs": true,
+  "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3"
+}

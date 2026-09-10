@@ -1,0 +1,24 @@
+{
+  "confidence_intervals": "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/tables/oof_patient_cluster_bootstrap_95ci.csv",
+  "figures": [
+    "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_slice_level_confusion_matrix.png",
+    "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_patient_level_confusion_matrix.png",
+    "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_slice_level_roc_curves.png",
+    "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_patient_level_roc_curves.png",
+    "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_slice_level_calibration.png",
+    "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_patient_level_calibration.png"
+  ],
+  "final_checkpoints": [
+    "nested_cv_results/split_554d062a5bd7/models/outer_fold_0/final_refit/final_model.pt",
+    "nested_cv_results/split_554d062a5bd7/models/outer_fold_1/final_refit/final_model.pt",
+    "nested_cv_results/split_554d062a5bd7/models/outer_fold_2/final_refit/final_model.pt",
+    "nested_cv_results/split_554d062a5bd7/models/outer_fold_3/final_refit/final_model.pt",
+    "nested_cv_results/split_554d062a5bd7/models/outer_fold_4/final_refit/final_model.pt"
+  ],
+  "fold_summary": "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/tables/outer_fold_metrics_summary.csv",
+  "outer_fold_metrics": "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/tables/outer_fold_metrics.csv",
+  "patient_overall": "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_patient_level_overall_metrics.json",
+  "patient_per_class": "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_patient_level_per_class_metrics.csv",
+  "slice_overall": "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_slice_level_overall_metrics.json",
+  "slice_per_class": "C:/Users/Alzubair/Desktop/newmodel1/SIVP/brain tumor/zubNet-A/nested_cv_results/split_554d062a5bd7/oof_evaluation/oof_slice_level_per_class_metrics.csv"
+}

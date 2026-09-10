@@ -1,0 +1,6 @@
+model_name,outer_fold,inner_fold,best_epoch,best_validation_macro_f1
+efficientnet_b0,0,0,30,0.9512491465634271
+efficientnet_b0,0,1,32,0.9792106621064095
+efficientnet_b0,0,2,27,0.9525624924191609
+efficientnet_b0,0,3,41,0.9377691387559808
+efficientnet_b0,0,4,49,0.9892703790494434

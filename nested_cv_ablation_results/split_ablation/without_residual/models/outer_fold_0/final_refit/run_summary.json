@@ -1,0 +1,37 @@
+{
+  "checkpoint_path": "nested_cv_ablation_results/split_ablation/without_residual/models/outer_fold_0/final_refit/final_model.pt",
+  "crop_config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "development_images": 2276,
+  "history_path": "nested_cv_ablation_results/split_ablation/without_residual/models/outer_fold_0/final_refit/history.csv",
+  "locked_test_images": 655,
+  "model_seed": 500042,
+  "outer_fold": 0,
+  "refit_epochs": 49,
+  "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+  "training_config": {
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.001,
+    "loss": "cross_entropy",
+    "monitor": "macro_f1",
+    "name": "fixed_paper_settings",
+    "optimizer": "Adam",
+    "reproducibility_revision": "cublas_workspace_4096_8_v1",
+    "weight_decay": 0.0001
+  },
+  "training_config_sha256": "d468342c19c193b991b312bfa200b1209f4fd26b3d9c25c2a35c292c51238cd6",
+  "training_seconds": 372.70988570002373,
+  "variant_config": {
+    "block_dropout": 0.1,
+    "description": "Shortcut addition is removed from every DSSE block.",
+    "head_dropout": 0.5,
+    "label": "Without residual connection",
+    "use_depthwise": true,
+    "use_residual": false,
+    "use_se": true,
+    "use_vertical_flip": true
+  },
+  "variant_config_sha256": "94b3e4d2877c4b7d6f852af297fd4de32fd5f0fadf513948eb875ef0a5a1d6eb",
+  "variant_label": "Without residual connection",
+  "variant_name": "without_residual"
+}

@@ -34,6 +34,24 @@ The selected DSSE-Net architecture is trained from scratch and evaluated with ne
 
 Large raw data, duplicated fold images, checkpoints, and legacy single-split experiments are excluded by [`.gitignore`](.gitignore).
 
+## 📌 Repository root
+
+Upload the **contents** of the local `zubNet-A` directory directly to the GitHub repository root. Do not create an additional `zubNet-A/` level inside the repository. The expected top level is therefore:
+
+```text
+<repository-root>/
+├── README.md
+├── .gitignore
+├── DSSE_Net_Nested_CV.ipynb
+├── dsse_primary.py
+├── export_ablation_learning_curves.py
+├── going_modular/
+├── nested_cv_artifacts/
+└── nested_cv_*_results/
+```
+
+All links and paths in this README are relative to that repository root.
+
 ## 🧠 Model architecture
 
 The final model is the **residual-free DSSE-Net**. Each DSSE block applies:
@@ -386,7 +404,7 @@ The script reads the 25 inner-fold `history.csv` files for each configuration an
 ## 📁 Generated directory structure
 
 ```text
-zubNet-A/
+<repository-root>/
 ├── brainDataset/                         # raw .mat files; ignored
 ├── nested_cv_images/                    # decoded PNG files; ignored
 ├── nested_cv_cropped/                   # cropped all_images and folds; ignored
@@ -416,6 +434,16 @@ zubNet-A/
 
 The repository intentionally tracks source code, compact manifests, histories, OOF summaries, statistical tables, and selected publication figures. It does not track raw medical images, duplicated fold folders, `.pt`/`.pth` checkpoints, or legacy models.
 
+> ⚠️ `.gitignore` is applied by Git during commands such as `git add`. It does not protect against manually selecting ignored files in GitHub's browser-based upload page. To avoid uploading the raw dataset or multi-gigabyte checkpoints, create the repository from inside the local `zubNet-A` directory with Git and inspect the staged files before committing.
+
+```bash
+git init
+git add .
+git status
+```
+
+Before committing, confirm that `brainDataset/`, `nested_cv_images/`, `nested_cv_cropped/`, `.pt`, and `.pth` files are absent from the staged-file list.
+
 If trained weights are released later, store them in a versioned GitHub Release or use Git LFS rather than committing them to the normal Git history. Record the matching split, crop, training, and variant hashes with every released checkpoint.
 
 ## 📝 Citation
@@ -432,4 +460,3 @@ Please also cite the original Figshare dataset and comply with its terms of use.
 - Grad-CAM provides qualitative attention maps, not tumor segmentations or causal explanations.
 - Baselines use ImageNet pretraining, whereas DSSE-Net is trained from scratch.
 - Statistical non-significance does not prove equivalence between models.
-

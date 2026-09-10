@@ -1,0 +1,4 @@
+class_name,file_name,patient_id,outer_fold,image_path,predicted_class,confidence,selection_rule,target_layer
+meningioma,102.mat,107494,4,nested_cv_cropped/outer_fold_4/test/meningioma/102.png,meningioma,0.9905282258987427,correct OOF slice nearest class-median confidence,stage3[-1].dwconv[0]
+glioma,2954.mat,MR051796,4,nested_cv_cropped/outer_fold_4/test/glioma/2954.png,glioma,0.997138261795044,correct OOF slice nearest class-median confidence,stage3[-1].dwconv[0]
+pituitary,1029.mat,101017,3,nested_cv_cropped/outer_fold_3/test/pituitary/1029.png,pituitary,0.9931426048278809,correct OOF slice nearest class-median confidence,stage3[-1].dwconv[0]

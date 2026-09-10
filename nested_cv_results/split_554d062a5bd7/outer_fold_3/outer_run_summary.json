@@ -1,0 +1,95 @@
+{
+  "final_refit": {
+    "checkpoint_path": "nested_cv_results/split_554d062a5bd7/models/outer_fold_3/final_refit/final_model.pt",
+    "development_images": 2359,
+    "history_path": "nested_cv_results/split_554d062a5bd7/models/outer_fold_3/final_refit/history.csv",
+    "locked_test_images": 572,
+    "model_seed": 500045,
+    "outer_fold": 3,
+    "refit_epochs": 38,
+    "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+    "training_config": {
+      "batch_size": 32,
+      "epochs": 50,
+      "learning_rate": 0.001,
+      "loss": "cross_entropy",
+      "monitor": "macro_f1",
+      "name": "paper_default",
+      "optimizer": "Adam",
+      "reproducibility_revision": "cublas_workspace_4096_8_v1",
+      "weight_decay": 0.0001
+    },
+    "training_config_sha256": "b387dead7d08830f46bf95db0af85b3aa319acfe2495dca082e60555d248a6eb",
+    "training_seconds": 297.3582456000149
+  },
+  "inner_learning_curve": "nested_cv_results/split_554d062a5bd7/figures/outer_fold_3_paper_default_inner_learning_curves.png",
+  "inner_selection_table": "nested_cv_results/split_554d062a5bd7/tables/outer_fold_3_inner_selection.csv",
+  "locked_test_evaluation": {
+    "inference_efficiency": {
+      "device": "cuda",
+      "latency_ms_per_image": 0.40838176109271607,
+      "peak_gpu_memory_mb": 322.4013671875,
+      "throughput_images_per_second": 2448.68918074176,
+      "timed_batches": 20,
+      "timed_samples": 636
+    },
+    "model_complexity": {
+      "flops": 299073184.0,
+      "gflops": 0.299073184,
+      "profiled_parameters": 287881,
+      "total_parameters": 287881,
+      "trainable_parameters": 287881
+    },
+    "outer_fold": 3,
+    "patient_level": {
+      "accuracy": 0.9574468085106383,
+      "balanced_accuracy": 0.9576719576719577,
+      "cohen_kappa": 0.9359236537150648,
+      "expected_calibration_error_10_bins": 0.07346276379271659,
+      "macro_f1": 0.9559139784946237,
+      "macro_precision": 0.9553571428571429,
+      "macro_recall": 0.9576719576719577,
+      "macro_roc_auc_ovr": 0.9978354978354979,
+      "matthews_correlation_coefficient": 0.9365629452337392,
+      "multiclass_brier_score": 0.06087590634390059,
+      "negative_log_likelihood": 0.1277806365481902,
+      "samples": 47,
+      "weighted_f1": 0.9574860280419648,
+      "weighted_precision": 0.9587765957446809,
+      "weighted_recall": 0.9574468085106383,
+      "weighted_roc_auc_ovr": 0.9980657640232108
+    },
+    "slice_level": {
+      "accuracy": 0.9615384615384616,
+      "balanced_accuracy": 0.9584605209605209,
+      "cohen_kappa": 0.9396959880388737,
+      "expected_calibration_error_10_bins": 0.01387882127562572,
+      "macro_f1": 0.9539374158000982,
+      "macro_precision": 0.9500607471904425,
+      "macro_recall": 0.9584605209605209,
+      "macro_roc_auc_ovr": 0.997333912313532,
+      "matthews_correlation_coefficient": 0.9398689844917119,
+      "multiclass_brier_score": 0.056976114060247725,
+      "negative_log_likelihood": 0.10008164386387844,
+      "samples": 572,
+      "weighted_f1": 0.9618653557536604,
+      "weighted_precision": 0.9626197096076615,
+      "weighted_recall": 0.9615384615384616,
+      "weighted_roc_auc_ovr": 0.9977511958150546
+    }
+  },
+  "outer_fold": 3,
+  "refit_epochs": 38,
+  "selected_candidate": "paper_default",
+  "selected_training_config": {
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.001,
+    "loss": "cross_entropy",
+    "monitor": "macro_f1",
+    "name": "paper_default",
+    "optimizer": "Adam",
+    "reproducibility_revision": "cublas_workspace_4096_8_v1",
+    "weight_decay": 0.0001
+  }
+}

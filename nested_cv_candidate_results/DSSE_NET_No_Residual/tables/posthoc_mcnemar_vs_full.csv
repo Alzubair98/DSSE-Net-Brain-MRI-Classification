@@ -1,0 +1,2 @@
+comparison,selection_status,patients,both_correct,full_correct_candidate_wrong,full_wrong_candidate_correct,both_wrong,discordant_pairs,mcnemar_statistic,exploratory_unadjusted_p_value,confirmatory_inference_allowed
+Full_DSSE_Net_vs_DSSE_NET_No_Residual,posthoc_exploratory,233,205,7,11,10,18,7.0,0.480682373046875,False

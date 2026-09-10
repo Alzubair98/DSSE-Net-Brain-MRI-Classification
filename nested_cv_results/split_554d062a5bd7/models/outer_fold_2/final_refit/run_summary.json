@@ -1,0 +1,23 @@
+{
+  "checkpoint_path": "nested_cv_results/split_554d062a5bd7/models/outer_fold_2/final_refit/final_model.pt",
+  "development_images": 2301,
+  "history_path": "nested_cv_results/split_554d062a5bd7/models/outer_fold_2/final_refit/history.csv",
+  "locked_test_images": 630,
+  "model_seed": 500044,
+  "outer_fold": 2,
+  "refit_epochs": 39,
+  "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+  "training_config": {
+    "batch_size": 32,
+    "epochs": 50,
+    "learning_rate": 0.001,
+    "loss": "cross_entropy",
+    "monitor": "macro_f1",
+    "name": "paper_default",
+    "optimizer": "Adam",
+    "reproducibility_revision": "cublas_workspace_4096_8_v1",
+    "weight_decay": 0.0001
+  },
+  "training_config_sha256": "b387dead7d08830f46bf95db0af85b3aa319acfe2495dca082e60555d248a6eb",
+  "training_seconds": 297.5692045999458
+}

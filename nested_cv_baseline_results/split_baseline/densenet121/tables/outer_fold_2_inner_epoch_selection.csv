@@ -1,0 +1,6 @@
+model_name,outer_fold,inner_fold,best_epoch,best_validation_macro_f1
+densenet121,2,0,13,0.9250377224515155
+densenet121,2,1,15,0.9888147236566814
+densenet121,2,2,43,0.9543327823139102
+densenet121,2,3,50,0.9776359030857744
+densenet121,2,4,28,0.9873287571460908

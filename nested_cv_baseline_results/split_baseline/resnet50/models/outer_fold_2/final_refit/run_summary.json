@@ -1,0 +1,28 @@
+{
+  "baseline_run_sha256": "5582b5cf107192bcc76aa1580194fc3ae615cc5b5e526840a4ab727322e5a49a",
+  "checkpoint_path": "nested_cv_baseline_results/split_baseline/resnet50/models/outer_fold_2/final_refit/final_model.pt",
+  "crop_config_sha256": "a240fed604b98ac9d65e72c916307a01207740c22cea1ecd7f54acdc59691f29",
+  "development_images": 2301,
+  "history_path": "nested_cv_baseline_results/split_baseline/resnet50/models/outer_fold_2/final_refit/history.csv",
+  "locked_test_images": 630,
+  "model_label": "ResNet-50",
+  "model_name": "resnet50",
+  "model_seed": 500044,
+  "outer_fold": 2,
+  "refit_epochs": 38,
+  "split_assignment_sha256": "554d062a5bd78bc4c2e014e2d53f44d4f5aeb243d2a52a61302bdb90a75d8ea3",
+  "training_config": {
+    "batch_size": 32,
+    "epochs": 50,
+    "fine_tuning": "all_layers",
+    "learning_rate": 0.0001,
+    "loss": "cross_entropy",
+    "monitor": "macro_f1",
+    "name": "imagenet_full_finetuning",
+    "optimizer": "Adam",
+    "pretrained_initialization": "ImageNet-1K",
+    "reproducibility_revision": "cublas_workspace_4096_8_v1",
+    "weight_decay": 0.0001
+  },
+  "training_seconds": 445.2236923999153
+}
