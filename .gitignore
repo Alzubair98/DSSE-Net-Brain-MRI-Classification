@@ -1,0 +1,119 @@
+# -----------------------------------------------------------------------------
+# DSSE-Net repository ignore rules
+# Keep source code, compact manifests, OOF summaries, and publication figures.
+# Exclude raw data, materialized folds, checkpoints, caches, and legacy outputs.
+# -----------------------------------------------------------------------------
+
+# Python caches and tooling
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+ENV/
+conda-meta/
+
+# Editors and operating-system files
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Raw medical-image data and materialized image folders
+/brainDataset/
+/brainData/
+/brainDataset_split/
+/brainDataset_images/
+/nested_cv_images/
+/nested_cv_cropped/
+/dataset_for_training/
+/croped_data_set/
+/cropped_data_set/
+/deleted images/
+/old data split/
+
+# Medical-image and large array formats
+*.mat
+*.h5
+*.hdf5
+*.nii
+*.nii.gz
+*.dcm
+*.npy
+*.npz
+
+# Trained weights, serialized models, and experiment archives
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.pkl
+*.pickle
+*.joblib
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Per-fold evaluation images are reproducible from the compact OOF artifacts.
+**/locked_test_evaluation/
+**/predictions/
+
+# Legacy single-split notebooks and outputs retained locally for reference.
+/DSSE-NET.ipynb
+/DSSE_Net_Experiment_Record.docx
+/DSSE_Net_GradCAM_Final.png
+/train_patient_ids.json
+/test_patient_ids.json
+/MyOwnModels/
+/theBaseLineModels/
+/going_modular/05_pytorch_going_modular_cell_mode.ipynb
+/going_modular/05_pytorch_going_modular_script_mode.ipynb
+/going_modular/going_modular/evaluation.ipynb
+
+# The original residual-based ablation folders are superseded by the
+# residual-free-reference study. The selected model itself is retained below.
+/nested_cv_ablation_results/split_ablation/standard_convolution/
+/nested_cv_ablation_results/split_ablation/without_dropout/
+/nested_cv_ablation_results/split_ablation/without_se/
+/nested_cv_ablation_results/split_ablation/without_vertical_flip/
+/nested_cv_ablation_results/split_ablation/tables/
+
+# Retain only the two figures used by the cleaned notebook/README and their
+# representative-sample manifest. Older cross-fold and CAM-method experiments
+# remain available locally but are not part of the public release.
+/nested_cv_ablation_results/split_ablation/without_residual/figures/*
+!/nested_cv_ablation_results/split_ablation/without_residual/figures/primary_model_dashboard.png
+!/nested_cv_ablation_results/split_ablation/without_residual/figures/gradcam_representative_oof.png
+!/nested_cv_ablation_results/split_ablation/without_residual/figures/gradcam_representative_oof_selection.csv
+
+# Legacy with-residual learning-curve figures can be regenerated from the
+# retained history.csv files with export_ablation_learning_curves.py.
+/nested_cv_results/split_554d062a5bd7/figures/
+
+# Temporary logs and local scratch files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+~$*
+
