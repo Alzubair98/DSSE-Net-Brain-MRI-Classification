@@ -252,18 +252,6 @@ Cross-fold Grad-CAM dispersion and Grad-CAM++/LayerCAM comparison code are not p
 
 ## 🚀 Installation
 
-### Option A: use the existing Conda environment
-
-The original experiments were run in the Conda environment named `dl`:
-
-```bash
-conda activate dl
-python -m pip install jupyterlab ipykernel
-python -m ipykernel install --user --name dl --display-name "Python (dl)"
-```
-
-### Option B: create a fresh environment
-
 ```bash
 conda create -n dsse-net python=3.10 -y
 conda activate dsse-net
