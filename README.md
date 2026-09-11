@@ -1,5 +1,7 @@
 # 🧠 DSSE-Net
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22713083.svg)](https://doi.org/10.5281/zenodo.22713083)
+
 **A compact residual-free Depthwise Squeeze-and-Excitation network for patient-level brain tumor classification from contrast-enhanced MRI.**
 
 This repository contains the reproducible PyTorch workflow accompanying the manuscript:
@@ -424,7 +426,11 @@ git status
 
 ## 📝 Citation
 
-If this repository contributes to your work, please cite the accompanying DSSE-Net manuscript. A final BibTeX entry should be added here after publication so that the journal citation, DOI, volume, and page information are accurate.
+The version of the code corresponding to the manuscript is archived on Zenodo:
+
+> Algaraghuli, A., & Ozturk, S. (2026). *DSSE-Net: A Compact Depthwise Squeeze-and-Excitation Network for Patient-Level Brain Tumor Classification* (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22713083
+
+Machine-readable citation metadata are provided in [`CITATION.cff`](CITATION.cff). GitHub's **Cite this repository** menu can export the citation in APA or BibTeX format. After publication, the journal article and its DOI will be added as the preferred citation.
 
 Please also cite the original Figshare dataset and comply with its terms of use.
 

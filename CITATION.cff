@@ -4,6 +4,7 @@ title: "DSSE-Net: A Compact Depthwise Squeeze-and-Excitation Network for Patient
 type: software
 version: 1.0.0
 date-released: 2026-09-11
+doi: "10.5281/zenodo.22713083"
 license: MIT
 
 authors:
