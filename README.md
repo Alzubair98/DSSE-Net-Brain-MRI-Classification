@@ -79,7 +79,7 @@ The output layer returns **logits**. Softmax is applied only when probabilities 
 
 ## 🧬 Dataset
 
-The experiments use the public Cheng contrast-enhanced MRI brain tumor dataset available from Figshare: [doi:10.6084/m9.figshare.1512427.v8](https://doi.org/10.6084/m9.figshare.1512427.v8). 
+The experiments use the public Cheng contrast-enhanced MRI brain tumor dataset available from Figshare: [doi:10.6084/m9.figshare.1512427.v8](https://doi.org/10.6084/m9.figshare.1512427.v8).
 
 ### Final study cohort
 
@@ -212,7 +212,7 @@ All baselines were fully fine-tuned from ImageNet-1K weights using the same nest
 | EfficientNet-B0             | ImageNet full fine-tuning |     95.28% |     0.9510 |     4.011 M |     0.414 |          1.0000 |
 | RegNet-Y-400MF              | ImageNet full fine-tuning |     94.42% |     0.9447 |     3.904 M |     0.418 |          1.0000 |
 
-None of the five paired differences was statistically significant after Holm correction at `α = 0.05`. These comparisons support a compact performance–complexity trade-off; they do not establish equivalence or superiority.
+None of the five paired differences was statistically significant after Holm correction at `α = 0.05`. These comparisons support a compact performance–complexity trade-off.
 
 Full compact tables:
 
@@ -233,7 +233,7 @@ The selected residual-free model is the reference. Each row changes one design c
 | Remove dropout                                      |     91.85% |   −1.29 pp |     0.9193 |        0.9868 |   0.2879 M | 0.2991 |          1.0000 |
 | Remove all augmentation                             |     90.56% |   −2.58 pp |     0.9068 |        0.9892 |   0.2879 M | 0.2991 |          1.0000 |
 
-Only replacement of depthwise convolution with standard convolution remained significant after Holm correction.
+replacement of depthwise convolution with standard convolution remained significant after Holm correction.
 
 Full compact tables:
 
@@ -289,16 +289,11 @@ brainDataset/
 └── 3064.mat
 ```
 
-Do not commit this directory. It is excluded by `.gitignore` and must be obtained from the original data provider.
-
 ### 3. Start Jupyter
 
 ```bash
-conda activate dl
 jupyter lab DSSE_Net_Nested_CV.ipynb
 ```
-
-Select the `Python (dl)` kernel.
 
 ### 4. Prepare the data
 
@@ -421,17 +416,11 @@ The script reads the 25 inner-fold `history.csv` files for each configuration an
 
 The repository intentionally tracks source code, compact manifests, histories, OOF summaries, statistical tables, and selected publication figures. It does not track raw medical images, duplicated fold folders, `.pt`/`.pth` checkpoints, or legacy models.
 
-> ⚠️ `.gitignore` is applied by Git during commands such as `git add`. It does not protect against manually selecting ignored files in GitHub's browser-based upload page. To avoid uploading the raw dataset or multi-gigabyte checkpoints, create the repository from inside the local `zubNet-A` directory with Git and inspect the staged files before committing.
-
 ```bash
 git init
 git add .
 git status
 ```
-
-Before committing, confirm that `brainDataset/`, `nested_cv_images/`, `nested_cv_cropped/`, `.pt`, and `.pth` files are absent from the staged-file list.
-
-If trained weights are released later, store them in a versioned GitHub Release or use Git LFS rather than committing them to the normal Git history. Record the matching split, crop, training, and variant hashes with every released checkpoint.
 
 ## 📝 Citation
 
@@ -446,4 +435,3 @@ Please also cite the original Figshare dataset and comply with its terms of use.
 - Calibration estimates are descriptive and require external confirmation.
 - Grad-CAM provides qualitative attention maps, not tumor segmentations or causal explanations.
 - Baselines use ImageNet pretraining, whereas DSSE-Net is trained from scratch.
-- Statistical non-significance does not prove equivalence between models.
