@@ -435,3 +435,11 @@ Please also cite the original Figshare dataset and comply with its terms of use.
 - Calibration estimates are descriptive and require external confirmation.
 - Grad-CAM provides qualitative attention maps, not tumor segmentations or causal explanations.
 - Baselines use ImageNet pretraining, whereas DSSE-Net is trained from scratch.
+
+## 📄 License
+
+The source code in this repository is released under the [MIT License](LICENSE).
+
+The trained models are provided for research purposes and have not been
+validated for clinical diagnosis or patient care. The original MRI dataset
+is not redistributed and remains subject to its original CC BY 4.0 license.
