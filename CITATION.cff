@@ -26,7 +26,8 @@ abstract: >-
   from contrast-enhanced MRI. The repository includes preprocessing, manual
   quality-control manifests, nested stratified patient-level 5x5
   cross-validation, ablation experiments, baseline comparisons, statistical
-  analysis, and Grad-CAM visualization.
+  analysis, and Grad-CAM visualization. The accompanying Zenodo record also
+  provides the five final outer-fold checkpoints of the selected model.
 
 keywords:
   - brain tumor classification

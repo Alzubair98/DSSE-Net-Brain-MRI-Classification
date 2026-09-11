@@ -34,8 +34,9 @@ The selected DSSE-Net architecture is trained from scratch and evaluated with ne
 | [`going_modular/going_modular`](going_modular/going_modular)               | Supporting data-loading, training, evaluation, prediction, and utility modules.                                                                 |
 | [`nested_cv_artifacts`](nested_cv_artifacts)                               | Reproducibility manifests, fold membership, preprocessing configuration, QC records, and data summaries.                                        |
 | `nested_cv_*_results/`                                                     | Compact experiment configurations, histories, OOF summaries, figures, and comparison tables. Model weights are intentionally excluded from Git. |
+| [Zenodo release](https://doi.org/10.5281/zenodo.22713083)                  | Versioned source archive and the five final outer-fold checkpoints of the selected residual-free model.                                          |
 
-Large raw data, duplicated fold images, checkpoints, and legacy single-split experiments are excluded by [`.gitignore`](.gitignore).
+Large raw data, duplicated fold images, checkpoints, and legacy single-split experiments are excluded by [`.gitignore`](.gitignore). The five selected final-refit checkpoints are distributed separately through the Zenodo release.
 
 ## 📌 Repository root
 
@@ -317,7 +318,7 @@ To reproduce the published 2,931-image cohort, keep the supplied `nested_cv_arti
 
 All expensive execution switches are `False` by default. With the compact result artifacts present, run the **Primary saved results** and **Grad-CAM** display cells near the top of the notebook to inspect the frozen study outputs.
 
-Checkpoints are excluded from Git. The saved Grad-CAM PNG can be viewed without them, but regenerating Grad-CAM requires the trained outer-fold checkpoint files.
+Checkpoints are excluded from Git. The saved Grad-CAM PNG can be viewed without them. To reproduce fold-specific inference or regenerate Grad-CAM, download [`DSSE-Net_selected_outer_fold_checkpoints_v1.0.zip`](https://zenodo.org/records/22713083/files/DSSE-Net_selected_outer_fold_checkpoints_v1.0.zip?download=1) and extract its five `final_refit` checkpoints into the corresponding outer-fold model directories.
 
 ### 6. Retrain the selected residual-free configuration
 
@@ -416,7 +417,7 @@ The script reads the 25 inner-fold `history.csv` files for each configuration an
 
 ## 📦 Git and model-weight policy
 
-The repository intentionally tracks source code, compact manifests, histories, OOF summaries, statistical tables, and selected publication figures. It does not track raw medical images, duplicated fold folders, `.pt`/`.pth` checkpoints, or legacy models.
+The repository intentionally tracks source code, compact manifests, histories, OOF summaries, statistical tables, and selected publication figures. It does not track raw medical images, duplicated fold folders, `.pt`/`.pth` checkpoints, or legacy models. The five final outer-fold checkpoints used for the selected residual-free model are archived on [Zenodo](https://doi.org/10.5281/zenodo.22713083); inner-fold, ablation-control, and baseline checkpoints are not distributed.
 
 ```bash
 git init
@@ -432,6 +433,8 @@ The version of the code corresponding to the manuscript is archived on Zenodo:
 
 Machine-readable citation metadata are provided in [`CITATION.cff`](CITATION.cff). GitHub's **Cite this repository** menu can export the citation in APA or BibTeX format. After publication, the journal article and its DOI will be added as the preferred citation.
 
+The same Zenodo record includes one `final_refit` checkpoint for each of the five outer folds. These checkpoints support reproduction of the reported fold-specific OOF inference and Grad-CAM visualizations; they are not a separate model trained on the complete cohort for clinical deployment.
+
 Please also cite the original Figshare dataset and comply with its terms of use.
 
 ## ⚖️ Limitations
@@ -446,6 +449,6 @@ Please also cite the original Figshare dataset and comply with its terms of use.
 
 The source code in this repository is released under the [MIT License](LICENSE).
 
-The trained models are provided for research purposes and have not been
+The archived outer-fold checkpoints are provided for research purposes and have not been
 validated for clinical diagnosis or patient care. The original MRI dataset
 is not redistributed and remains subject to its original CC BY 4.0 license.
