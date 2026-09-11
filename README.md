@@ -28,6 +28,7 @@ The selected DSSE-Net architecture is trained from scratch and evaluated with ne
 | [`DSSE_Net_Nested_CV.ipynb`](DSSE_Net_Nested_CV.ipynb)                     | Main end-to-end notebook: data preparation, nested CV, training, evaluation, ablation, baselines, and Grad-CAM.                                 |
 | [`dsse_primary.py`](dsse_primary.py)                                       | Compact helpers for loading and presenting the selected residual-free model results.                                                            |
 | [`export_ablation_learning_curves.py`](export_ablation_learning_curves.py) | Rebuilds supplementary learning-curve figures from saved inner-fold histories.                                                                  |
+| [`requirements.txt`](requirements.txt)                                     | Pinned Python dependencies from the reference Conda `dl` environment.                                                                           |
 | [`going_modular/going_modular`](going_modular/going_modular)               | Supporting data-loading, training, evaluation, prediction, and utility modules.                                                                 |
 | [`nested_cv_artifacts`](nested_cv_artifacts)                               | Reproducibility manifests, fold membership, preprocessing configuration, QC records, and data summaries.                                        |
 | `nested_cv_*_results/`                                                     | Compact experiment configurations, histories, OOF summaries, figures, and comparison tables. Model weights are intentionally excluded from Git. |
@@ -36,12 +37,11 @@ Large raw data, duplicated fold images, checkpoints, and legacy single-split exp
 
 ## 📌 Repository root
 
-Upload the **contents** of the local `zubNet-A` directory directly to the GitHub repository root. Do not create an additional `zubNet-A/` level inside the repository. The expected top level is therefore:
-
 ```text
 <repository-root>/
 ├── README.md
 ├── .gitignore
+├── requirements.txt
 ├── DSSE_Net_Nested_CV.ipynb
 ├── dsse_primary.py
 ├── export_ablation_learning_curves.py
@@ -90,7 +90,7 @@ The experiments use the public Cheng contrast-enhanced MRI brain tumor dataset a
 | Pituitary  |           2 |       62 |             920 |
 | **Total**  |           — |  **233** |       **2,931** |
 
-The original dataset contains 3,064 slices from the same 233 patients. After automated cropping, 133 images with unsatisfactory preprocessing results were excluded through manual visual quality control. The patient cohort was retained, and all folds were rebuilt from the post-QC image manifest.
+The original dataset contains 3,064 slices from the same 233 patients. After automated cropping, 133 images with unsatisfactory preprocessing results were excluded through manual visual quality control. This review was completed before fold generation, model training, or inspection of model-derived results, and class labels were unavailable during the assessment. The patient cohort was retained, and all folds were rebuilt from the post-QC image manifest.
 
 The exact class mapping is:
 
@@ -272,9 +272,11 @@ conda activate dsse-net
 Install PyTorch and torchvision using the command appropriate for your operating system and CUDA version from the [official PyTorch installation guide](https://pytorch.org/get-started/locally/). Then install the remaining dependencies:
 
 ```bash
-python -m pip install torchinfo statsmodels numpy opencv-python pandas matplotlib scikit-learn seaborn thop h5py tqdm pillow jupyterlab ipykernel grad-cam
+python -m pip install -r requirements.txt
 python -m ipykernel install --user --name dsse-net --display-name "Python (dsse-net)"
 ```
+
+The reference environment used the CUDA 12.8 builds `torch==2.7.1+cu128` and `torchvision==0.22.1+cu128`. The portable pins in `requirements.txt` also accept matching CPU or other CUDA build tags when those builds are installed first from the official PyTorch selector.
 
 The reference machine used Python `3.10.18`, PyTorch `2.7.1+cu128`, torchvision `0.22.1+cu128`, NumPy `2.2.6`, pandas `2.3.2`, scikit-learn `1.7.1`, and h5py `3.15.1`. Training was performed on an NVIDIA GeForce RTX 5080 with 16 GB VRAM.
 
@@ -282,11 +284,9 @@ The reference machine used Python `3.10.18`, PyTorch `2.7.1+cu128`, torchvision 
 
 ### 1. Clone and enter the repository
 
-Replace the placeholders with the final GitHub account and repository name:
-
 ```bash
-git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>.git
-cd <YOUR-REPOSITORY>
+git clone https://github.com/Alzubair98/DSSE-Net-Brain-MRI-Classification.git
+cd DSSE-Net-Brain-MRI-Classification
 ```
 
 ### 2. Add the raw dataset
