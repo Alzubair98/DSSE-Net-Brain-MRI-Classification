@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "DSSE-Net: A Compact Depthwise Squeeze-and-Excitation Network for Patient-Level Brain Tumor Classification"
+type: software
+version: 1.0.0
+date-released: 2026-09-11
+license: MIT
+
+authors:
+  - family-names: "Algaraghuli"
+    given-names: "Alzubair"
+    affiliation: "Erciyes University"
+    orcid: "https://orcid.org/0000-0002-6117-8051"
+
+  - family-names: "Ozturk"
+    given-names: "Serkan"
+    affiliation: "Erciyes University"
+
+repository-code: "https://github.com/Alzubair98/DSSE-Net-Brain-MRI-Classification"
+url: "https://github.com/Alzubair98/DSSE-Net-Brain-MRI-Classification"
+
+abstract: >-
+  PyTorch implementation of DSSE-Net, a compact residual-free depthwise
+  squeeze-and-excitation network for patient-level brain tumor classification
+  from contrast-enhanced MRI. The repository includes preprocessing, manual
+  quality-control manifests, nested stratified patient-level 5x5
+  cross-validation, ablation experiments, baseline comparisons, statistical
+  analysis, and Grad-CAM visualization.
+
+keywords:
+  - brain tumor classification
+  - magnetic resonance imaging
+  - deep learning
+  - patient-level cross-validation
+  - depthwise convolution
+  - squeeze-and-excitation
+  - Grad-CAM
