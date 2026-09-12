@@ -361,7 +361,8 @@ Change only the required execution switch and keep unrelated switches disabled:
 | With-residual control                  | `RUN_WITH_RESIDUAL_CONTROL = True` |
 | Four residual-free component ablations | `RUN_ABLATION_STUDY = True`        |
 | Five pretrained CNN baselines          | `RUN_BASELINE_COMPARISON = True`   |
-| No-residual, no-vertical-flip control  | `RUN_DSSE_NET_NO_RESIDUAL = True`  |
+
+The completed no-vertical-flip control is read by the unified component-ablation section from `nested_cv_candidate_results/DSSE_NET_No_Residual/`. Its former standalone training section was removed because it duplicated the generic nested-CV training and evaluation code.
 
 For a short verification run, restrict the corresponding list before enabling training, for example:
 
@@ -429,7 +430,7 @@ git status
 
 The version of the code corresponding to the manuscript is archived on Zenodo:
 
-> Algaraghuli, A., & Ozturk, S. (2026). *DSSE-Net: A Compact Depthwise Squeeze-and-Excitation Network for Patient-Level Brain Tumor Classification* (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22713083
+> Alqaraghuli, A., & Ozturk, S. (2026). *DSSE-Net: A Compact Depthwise Squeeze-and-Excitation Network for Patient-Level Brain Tumor Classification* (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.22713083
 
 Machine-readable citation metadata are provided in [`CITATION.cff`](CITATION.cff). GitHub's **Cite this repository** menu can export the citation in APA or BibTeX format. After publication, the journal article and its DOI will be added as the preferred citation.
 
